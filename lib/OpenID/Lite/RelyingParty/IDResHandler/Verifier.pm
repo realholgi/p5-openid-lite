@@ -139,7 +139,7 @@ sub _verify_return_to_args {
     for my $key ( @{ $self->params->get_extra_keys() } ) {
         my $msg_val = $self->params->get_extra($key);
         return $self->ERROR(
-            q{Unexpected parameter (not on return_to), [%s = %s]},
+            sprintf q{Unexpected parameter (not on return_to), [%s = %s]},
             $key, $msg_val )
             if not exists $parsed{$key};
         if ( $msg_val ne $parsed{$key} ) {
